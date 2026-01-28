@@ -1,7 +1,6 @@
 import { IconButton, Stack } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 import { FaGitlab } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 interface SocialLinksProps {
     size?: 'small' | 'medium' | 'large';
@@ -13,7 +12,7 @@ const SocialLinks = ({ size = 'medium', color = 'inherit' }: SocialLinksProps) =
         <Stack direction="row" spacing={1}>
             <IconButton
                 component="a"
-                href="https://github.com/TON_USERNAME"
+                href="https://github.com/mdeguil"
                 target="_blank"
                 rel="noopener noreferrer"
                 size={size}
@@ -24,7 +23,7 @@ const SocialLinks = ({ size = 'medium', color = 'inherit' }: SocialLinksProps) =
 
             <IconButton
                 component="a"
-                href="https://gitlab.com/TON_USERNAME"
+                href="https://gitlab.lev-btssio.fr/mateo.deguil"
                 target="_blank"
                 rel="noopener noreferrer"
                 size={size}
@@ -35,22 +34,13 @@ const SocialLinks = ({ size = 'medium', color = 'inherit' }: SocialLinksProps) =
 
             <IconButton
                 component="a"
-                href="https://linkedin.com/in/TON_USERNAME"
+                href="https://linkedin.com/in/matéo-deguil-82716432b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 size={size}
                 sx={{ color }}
             >
                 <LinkedIn />
-            </IconButton>
-
-            <IconButton
-                component={Link}
-                to="/contact"
-                size={size}
-                sx={{ color }}
-            >
-                <Email />
             </IconButton>
         </Stack>
     );

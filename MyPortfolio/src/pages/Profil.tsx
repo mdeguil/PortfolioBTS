@@ -1,8 +1,6 @@
-import { Box, Container, Typography, Button, Stack, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
-import { FaGitlab } from 'react-icons/fa';
+import { Box, Container, Typography, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import profileImage from '../assets/ME.png';
 
 const MotionBox = motion(Box);
 
@@ -23,6 +21,19 @@ const Profil = () => {
                     transition={{ duration: 0.8 }}
                     textAlign="center"
                 >
+                    {/* Avatar en grand */}
+                    <Avatar
+                        alt="Votre Nom"
+                        src={profileImage}
+                        sx={{
+                            width: 150,
+                            height: 150,
+                            margin: '0 auto 2rem',
+                            border: '4px solid white',
+                            boxShadow: 4
+                        }}
+                    />
+
                     <Typography
                         variant="h1"
                         sx={{
@@ -32,77 +43,13 @@ const Profil = () => {
                             WebkitTextFillColor: 'transparent',
                         }}
                     >
-                        Votre Nom
+                        DEGUIL Matéo
                     </Typography>
 
                     <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
                         Développeur Full Stack | React • TypeScript • Java • Symfony
                     </Typography>
 
-                    <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-                        <IconButton
-                            component="a"
-                            href="https://github.com/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            color="primary"
-                            size="large"
-                        >
-                            <GitHub fontSize="large" />
-                        </IconButton>
-
-                        <IconButton
-                            component="a"
-                            href="https://gitlab.com/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{ color: '#FC6D26', fontSize: '2.5rem' }}
-                            size="large"
-                        >
-                            <FaGitlab />
-                        </IconButton>
-
-                        <IconButton
-                            component="a"
-                            href="https://linkedin.com/in/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            color="primary"
-                            size="large"
-                        >
-                            <LinkedIn fontSize="large" />
-                        </IconButton>
-
-                        <IconButton
-                            component={Link}
-                            to="/contact"
-                            color="primary"
-                            size="large"
-                        >
-                            <Email fontSize="large" />
-                        </IconButton>
-                    </Stack>
-
-                    <Stack direction="row" spacing={2} justifyContent="center">
-                        <Button
-                            component={Link}
-                            to="/projets"
-                            variant="contained"
-                            size="large"
-                            sx={{ px: 4 }}
-                        >
-                            Voir mes projets
-                        </Button>
-                        <Button
-                            component={Link}
-                            to="/competences"
-                            variant="outlined"
-                            size="large"
-                            sx={{ px: 4 }}
-                        >
-                            Mes compétences
-                        </Button>
-                    </Stack>
                 </MotionBox>
             </Container>
         </Box>

@@ -1,7 +1,8 @@
-import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Box, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Box, useMediaQuery, useTheme, Avatar } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import profileImage from '../assets/ME.png';
 
 const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -40,19 +41,43 @@ const Header = () => {
         <>
             <AppBar position="fixed" elevation={4}>
                 <Toolbar>
-                    <Typography
-                        variant="h6"
+                    {/* Logo + Titre */}
+                    <Box
                         component={Link}
                         to="/"
                         sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1.5,
                             flexGrow: 1,
                             textDecoration: 'none',
-                            color: 'inherit',
-                            fontWeight: 700
+                            color: 'inherit'
                         }}
                     >
-                        Mon Portfolio
-                    </Typography>
+                        <Avatar
+                            alt="Photo de profil"
+                            src={profileImage}
+                            sx={{
+                                width: 40,
+                                height: 40,
+                                border: '2px solid white',
+                                transition: 'transform 0.3s',
+                                '&:hover': {
+                                    transform: 'scale(1.1)'
+                                }
+                            }}
+                        />
+
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                fontWeight: 700,
+                                display: { xs: 'none', sm: 'block' }
+                            }}
+                        >
+                            Mon Portfolio
+                        </Typography>
+                    </Box>
 
                     {isMobile ? (
                         <IconButton
