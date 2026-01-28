@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Stack, IconButton, Divider } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 import { FaGitlab } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -32,9 +32,9 @@ const Footer = () => {
                                 Mon Profil
                             </Typography>
                         </Link>
-                        <Link to="/activite" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link to="/realisations" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <Typography variant="body2" sx={{ '&:hover': { color: 'primary.main' } }}>
-                                Activité
+                                Réalisations
                             </Typography>
                         </Link>
                         <Link to="/competences" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -42,9 +42,19 @@ const Footer = () => {
                                 Compétences
                             </Typography>
                         </Link>
+                        <Link to="/stages" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Typography variant="body2" sx={{ '&:hover': { color: 'primary.main' } }}>
+                                Stages
+                            </Typography>
+                        </Link>
                         <Link to="/projets" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <Typography variant="body2" sx={{ '&:hover': { color: 'primary.main' } }}>
-                                Projets
+                                Mes Projets
+                            </Typography>
+                        </Link>
+                        <Link to="/veille" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Typography variant="body2" sx={{ '&:hover': { color: 'primary.main' } }}>
+                                Veille Technologique
                             </Typography>
                         </Link>
                     </Stack>
@@ -104,22 +114,27 @@ const Footer = () => {
                         >
                             <LinkedIn />
                         </IconButton>
-
-                        <IconButton
-                            component="a"
-                            href="mailto:ton.email@example.com"
-                            size="small"
-                            sx={{
-                                '&:hover': {
-                                    color: 'primary.main',
-                                    transform: 'scale(1.1)',
-                                    transition: 'all 0.3s'
-                                }
-                            }}
-                        >
-                            <Email />
-                        </IconButton>
                     </Stack>
+
+                    {/* Email visible */}
+                    <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        align="center"
+                    >
+                        <a
+                            href="mailto:deguil.mateo@gmail.com"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                                transition: 'color 0.3s'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.color = '#2196f3'}
+                            onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}
+                        >
+                            📧 deguil.mateo@gmail.com
+                        </a>
+                    </Typography>
 
                     {/* Copyright */}
                     <Typography
@@ -127,7 +142,7 @@ const Footer = () => {
                         color="text.secondary"
                         align="center"
                     >
-                        © {currentYear} Votre Nom. Tous droits réservés.
+                        © {currentYear} DEGUIL Matéo. Tous droits réservés.
                     </Typography>
 
                     <Typography
