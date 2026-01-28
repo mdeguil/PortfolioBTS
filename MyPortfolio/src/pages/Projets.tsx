@@ -10,7 +10,7 @@ interface Project {
     demo?: string;
 }
 
-const Projects = () => {
+const Projets = () => {
     const projects: Project[] = [
         {
             id: 1,
@@ -88,4 +88,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default Projets;

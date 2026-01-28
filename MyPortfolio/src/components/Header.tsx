@@ -10,10 +10,12 @@ const Header = () => {
     const location = useLocation();
 
     const menuItems = [
-        { label: 'Accueil', path: '/' },
-        { label: 'À propos', path: '/about' },
-        { label: 'Projets', path: '/projects' },
-        { label: 'Contact', path: '/contact' },
+        { label: 'Mon Profil', path: '/' },
+        { label: 'Activité', path: '/activite' },
+        { label: 'Compétences', path: '/competences' },
+        { label: 'Stages', path: '/stages' },
+        { label: 'Mes Projets', path: '/projets' },
+        { label: 'Veille Technologique', path: '/veille' },
     ];
 
     const drawer = (
@@ -38,7 +40,17 @@ const Header = () => {
         <>
             <AppBar position="fixed" elevation={4}>
                 <Toolbar>
-                    <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit', fontWeight: 700 }}>
+                    <Typography
+                        variant="h6"
+                        component={Link}
+                        to="/"
+                        sx={{
+                            flexGrow: 1,
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            fontWeight: 700
+                        }}
+                    >
                         Mon Portfolio
                     </Typography>
 
@@ -51,16 +63,21 @@ const Header = () => {
                             <MenuIcon />
                         </IconButton>
                     ) : (
-                        <Box sx={{ display: 'flex', gap: 2 }}>
+                        <Box sx={{ display: 'flex', gap: 1.5 }}>
                             {menuItems.map((item) => (
                                 <Button
                                     key={item.path}
                                     component={Link}
                                     to={item.path}
                                     color="inherit"
+                                    size="small"
                                     sx={{
                                         fontWeight: location.pathname === item.path ? 700 : 400,
-                                        borderBottom: location.pathname === item.path ? '2px solid white' : 'none'
+                                        borderBottom: location.pathname === item.path ? '2px solid white' : 'none',
+                                        borderRadius: 0,
+                                        '&:hover': {
+                                            borderBottom: '2px solid rgba(255,255,255,0.5)',
+                                        }
                                     }}
                                 >
                                     {item.label}
@@ -79,7 +96,7 @@ const Header = () => {
                 {drawer}
             </Drawer>
 
-            <Toolbar /> {/* Spacer pour le contenu */}
+            <Toolbar />
         </>
     );
 };

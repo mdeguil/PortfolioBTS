@@ -1,11 +1,12 @@
 import { Box, Container, Typography, Button, Stack, IconButton } from '@mui/material';
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { FaGitlab } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const MotionBox = motion(Box);
 
-const Home = () => {
+const Profil = () => {
     return (
         <Box
             sx={{
@@ -31,11 +32,11 @@ const Home = () => {
                             WebkitTextFillColor: 'transparent',
                         }}
                     >
-                        Bienvenue sur mon Portfolio
+                        Votre Nom
                     </Typography>
 
                     <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
-                        Développeur Full Stack | React • TypeScript • Java
+                        Développeur Full Stack | React • TypeScript • Java • Symfony
                     </Typography>
 
                     <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
@@ -43,20 +44,35 @@ const Home = () => {
                             component="a"
                             href="https://github.com/TON_USERNAME"
                             target="_blank"
+                            rel="noopener noreferrer"
                             color="primary"
                             size="large"
                         >
                             <GitHub fontSize="large" />
                         </IconButton>
+
+                        <IconButton
+                            component="a"
+                            href="https://gitlab.com/TON_USERNAME"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: '#FC6D26', fontSize: '2.5rem' }}
+                            size="large"
+                        >
+                            <FaGitlab />
+                        </IconButton>
+
                         <IconButton
                             component="a"
                             href="https://linkedin.com/in/TON_USERNAME"
                             target="_blank"
+                            rel="noopener noreferrer"
                             color="primary"
                             size="large"
                         >
                             <LinkedIn fontSize="large" />
                         </IconButton>
+
                         <IconButton
                             component={Link}
                             to="/contact"
@@ -70,7 +86,7 @@ const Home = () => {
                     <Stack direction="row" spacing={2} justifyContent="center">
                         <Button
                             component={Link}
-                            to="/projects"
+                            to="/projets"
                             variant="contained"
                             size="large"
                             sx={{ px: 4 }}
@@ -79,12 +95,12 @@ const Home = () => {
                         </Button>
                         <Button
                             component={Link}
-                            to="/contact"
+                            to="/competences"
                             variant="outlined"
                             size="large"
                             sx={{ px: 4 }}
                         >
-                            Me contacter
+                            Mes compétences
                         </Button>
                     </Stack>
                 </MotionBox>
@@ -93,4 +109,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Profil;
