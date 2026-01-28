@@ -3,11 +3,11 @@ import { Box } from '@mui/material';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Profil from './pages/Profil';
-import Activite from './pages/Activite';
 import Competences from './pages/Competences';
 import Stages from './pages/Stages';
 import Projets from './pages/Projets';
 import Veille from './pages/Veille';
+import Realisations from "./pages/Realisations .tsx";
 
 function App() {
     return (
@@ -25,7 +25,7 @@ function App() {
                 <Box component="main" sx={{ flexGrow: 1 }}>
                     <Routes>
                         <Route path="/" element={<Profil />} />
-                        <Route path="/activite" element={<Activite />} />
+                        <Route path="/realisations" element={<Realisations />} />
                         <Route path="/competences" element={<Competences />} />
                         <Route path="/stages" element={<Stages />} />
                         <Route path="/projets" element={<Projets />} />

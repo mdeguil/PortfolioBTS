@@ -12,7 +12,7 @@ const Header = () => {
 
     const menuItems = [
         { label: 'Mon Profil', path: '/' },
-        { label: 'Activité', path: '/activite' },
+        { label: 'Réalisations ', path: '/realisations ' },
         { label: 'Compétences', path: '/competences' },
         { label: 'Stages', path: '/stages' },
         { label: 'Mes Projets', path: '/projets' },
