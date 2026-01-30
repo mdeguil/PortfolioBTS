@@ -97,7 +97,7 @@ const Profil = () => {
                             </Button>
                             <Button
                                 component={Link}
-                                to="/activite"
+                                to="/realisations"
                                 variant="outlined"
                                 size="large"
                                 sx={{ px: 4 }}
@@ -200,7 +200,7 @@ const Profil = () => {
                             </Stack>
                             <Button
                                 component={Link}
-                                to="/activite"
+                                to="/realisations"
                                 variant="outlined"
                                 fullWidth
                                 sx={{ mt: 2 }}
