@@ -1,19 +1,19 @@
-import { Box, Container, Typography, Button, Stack, IconButton, Avatar, Paper, Grid, LinearProgress } from '@mui/material';
-import { GitHub, LinkedIn, Email, Code, School } from '@mui/icons-material';
-import { FaGitlab } from 'react-icons/fa';
+import { Box, Container, Typography, Button, Stack, Avatar, Paper, Grid, LinearProgress } from '@mui/material';
+import { Code, School } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/ME.png';
+import SocialLinks from "../components/SocialLinks.tsx";
 
 const MotionBox = motion(Box);
 
 const Profil = () => {
     // Aperçu des compétences principales
     const mainSkills = [
-        { name: 'React', level: 85 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'Java', level: 70 },
-        { name: 'Symfony', level: 65 },
+        { name: 'React + TypeScript', level: 50 },
+        { name: 'Java', level: 30 },
+        { name: 'Symfony', level: 15 },
+        { name: 'C#', level: 5 },
     ];
 
     // Aperçu des activités récentes
@@ -54,7 +54,7 @@ const Profil = () => {
                         textAlign="center"
                     >
                         <Avatar
-                            alt="Votre Nom"
+                            alt="DEGUIL Matéo"
                             src={profileImage}
                             sx={{
                                 width: 150,
@@ -74,7 +74,7 @@ const Profil = () => {
                                 WebkitTextFillColor: 'transparent',
                             }}
                         >
-                            Votre Nom
+                            DEGUIL Matéo
                         </Typography>
 
                         <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
@@ -82,47 +82,7 @@ const Profil = () => {
                         </Typography>
 
                         <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-                            <IconButton
-                                component="a"
-                                href="https://github.com/TON_USERNAME"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="primary"
-                                size="large"
-                            >
-                                <GitHub fontSize="large" />
-                            </IconButton>
-
-                            <IconButton
-                                component="a"
-                                href="https://gitlab.com/TON_USERNAME"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                sx={{ color: '#FC6D26', fontSize: '2.5rem' }}
-                                size="large"
-                            >
-                                <FaGitlab />
-                            </IconButton>
-
-                            <IconButton
-                                component="a"
-                                href="https://linkedin.com/in/TON_USERNAME"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="primary"
-                                size="large"
-                            >
-                                <LinkedIn fontSize="large" />
-                            </IconButton>
-
-                            <IconButton
-                                component={Link}
-                                to="/contact"
-                                color="primary"
-                                size="large"
-                            >
-                                <Email fontSize="large" />
-                            </IconButton>
+                           <SocialLinks size="large" />
                         </Stack>
 
                         <Stack direction="row" spacing={2} justifyContent="center">
@@ -156,12 +116,16 @@ const Profil = () => {
                         À propos de moi
                     </Typography>
                     <Typography variant="body1" color="text.secondary" paragraph>
-                        Actuellement en BTS SIO option SLAM (Solutions Logicielles et Applications Métiers),
-                        je suis passionné par le développement web et la création d'applications modernes.
+                        Actuellement étudiant en BTS SIO option SLAM (Solutions Logicielles et Applications Métiers),
+                        je me spécialise dans le développement d’applications web et la conception de solutions logicielles.
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary" paragraph>
+                        Au cours de ma formation, j’ai acquis des compétences en développement Front-End et Back-End,
+                        notamment avec React, TypeScript, Java et Symfony, à travers des projets scolaires et personnels.
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                        Mon objectif est de maîtriser les technologies Full Stack (React, TypeScript, Java, Symfony)
-                        et de développer des solutions innovantes répondant aux besoins des utilisateurs.
+                        Mon objectif est de continuer à développer mes compétences techniques
+                        et de concevoir des applications fiables, performantes et adaptées aux besoins des utilisateurs.
                     </Typography>
                 </Paper>
 
@@ -170,7 +134,7 @@ const Profil = () => {
                     <Grid size={12} sx={{ md: 6}}>
                         <Paper sx={{ p: 3, height: '100%' }}>
                             <Typography variant="h5" gutterBottom fontWeight={600}>
-                                Compétences principales
+                                Répartition des technologies utilisées dans mes projets (scolaires et personnels)
                             </Typography>
                             {mainSkills.map((skill) => (
                                 <Box key={skill.name} sx={{ mb: 2 }}>
@@ -250,10 +214,11 @@ const Profil = () => {
                 {/* Section Projets */}
                 <Paper sx={{ p: 4 }}>
                     <Typography variant="h5" gutterBottom fontWeight={600}>
-                        Mes projets personelle
+                        Mes projets personnels
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                        Découvrez mes dernières réalisations et projets de développement
+                        Projets réalisés en autonomie afin de renforcer mes compétences
+                        et d’explorer de nouvelles technologies du développement d'application.
                     </Typography>
                     <Button
                         component={Link}

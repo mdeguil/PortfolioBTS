@@ -1,7 +1,6 @@
-import { Box, Container, Typography, Stack, IconButton, Divider } from '@mui/material';
-import { GitHub, LinkedIn } from '@mui/icons-material';
-import { FaGitlab } from 'react-icons/fa';
+import { Box, Container, Typography, Stack, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import SocialLinks from "./SocialLinks.tsx";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -63,57 +62,7 @@ const Footer = () => {
 
                     {/* Réseaux sociaux */}
                     <Stack direction="row" spacing={1} justifyContent="center">
-                        <IconButton
-                            component="a"
-                            href="https://github.com/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                            sx={{
-                                '&:hover': {
-                                    color: 'primary.main',
-                                    transform: 'scale(1.1)',
-                                    transition: 'all 0.3s'
-                                }
-                            }}
-                        >
-                            <GitHub />
-                        </IconButton>
-
-                        <IconButton
-                            component="a"
-                            href="https://gitlab.com/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                            sx={{
-                                color: '#FC6D26',
-                                '&:hover': {
-                                    color: '#E24329',
-                                    transform: 'scale(1.1)',
-                                    transition: 'all 0.3s'
-                                }
-                            }}
-                        >
-                            <FaGitlab />
-                        </IconButton>
-
-                        <IconButton
-                            component="a"
-                            href="https://linkedin.com/in/TON_USERNAME"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                            sx={{
-                                '&:hover': {
-                                    color: '#0077b5',
-                                    transform: 'scale(1.1)',
-                                    transition: 'all 0.3s'
-                                }
-                            }}
-                        >
-                            <LinkedIn />
-                        </IconButton>
+                        <SocialLinks size="small"/>
                     </Stack>
 
                     {/* Email visible */}
