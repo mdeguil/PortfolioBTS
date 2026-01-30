@@ -1,243 +1,276 @@
-import { Box, Container, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip, LinearProgress } from '@mui/material';
-import { CheckCircle, RadioButtonUnchecked, HourglassEmpty } from '@mui/icons-material';
+import { Box, Container, Typography, Paper, Grid, Chip, Stack, Accordion, AccordionSummary, AccordionDetails, List, ListItem, Link as MuiLink, Card, CardContent } from '@mui/material';
+import { ExpandMore, CheckCircle } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+
+interface Activite {
+    nom: string;
+    lien?: string;
+    type?: 'scolaire' | 'personnel' | 'stage'; // Optionnel pour distinguer si besoin
+}
 
 interface Competence {
+    id: string;
     code: string;
-    intitule: string;
-    description: string;
-    niveau: 'acquis' | 'en-cours' | 'non-acquis';
-    pourcentage: number;
-    activites: string[];
+    titre: string;
+    sousCompetences: string[];
+    activites: Activite[];
 }
 
 const Competences = () => {
-    const competencesBTS: Competence[] = [
+    const competences: Competence[] = [
         {
+            id: 'C1',
             code: 'B1.1',
-            intitule: 'Gérer le patrimoine informatique',
-            description: 'Recenser et identifier les ressources numériques',
-            niveau: 'acquis',
-            pourcentage: 100,
-            activites: ['Projet de gestion de parc informatique', 'Stage - Inventaire des équipements']
+            titre: 'Gérer le patrimoine informatique',
+            sousCompetences: [
+                'Recenser et identifier les ressources numériques',
+                'Exploiter des référentiels, normes et standards adoptés par le prestataire informatique',
+                'Mettre en place et vérifier les niveaux d\'habilitation associés à un service',
+                'Vérifier les conditions de la continuité d\'un service informatique',
+                'Gérer des sauvegardes',
+                'Vérifier le respect des règles d\'utilisation des ressources numériques',
+            ],
+            activites: [
+                { nom: 'GLPI', lien: '/realisations#glpi', type: 'scolaire' },
+                { nom: 'Activité de sauvegardes', lien: '/realisations#sauvegardes', type: 'scolaire' },
+            ],
         },
         {
+            id: 'C2',
             code: 'B1.2',
-            intitule: 'Répondre aux incidents et aux demandes d\'assistance',
-            description: 'Collecter, suivre et orienter des demandes',
-            niveau: 'en-cours',
-            pourcentage: 70,
-            activites: ['Système de ticketing', 'Support technique en stage']
+            titre: 'Répondre aux incidents et aux demandes d\'assistance et d\'évolution',
+            sousCompetences: [
+                'Collecter, suivre et orienter des demandes',
+                'Traiter des demandes concernant les services réseau et système, applicatifs',
+                'Traiter des demandes concernant les applications',
+            ],
+            activites: [
+                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
+                { nom: 'GLPI', lien: '/realisations#glpi', type: 'scolaire' },
+                { nom: 'Windows Server', lien: '/realisations#windows-server', type: 'scolaire' },
+            ],
         },
         {
+            id: 'C3',
             code: 'B1.3',
-            intitule: 'Développer la présence en ligne',
-            description: 'Référencer les services en ligne et participer à leur évolution',
-            niveau: 'acquis',
-            pourcentage: 90,
-            activites: ['Création de portfolio', 'Site web pour association']
+            titre: 'Développer la présence en ligne de l\'organisation',
+            sousCompetences: [
+                'Participer à la valorisation de l\'image de l\'organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques',
+                'Référencer les services en ligne de l\'organisation et mesurer leur visibilité',
+                'Participer à l\'évolution d\'un site Web exploitant les données de l\'organisation',
+            ],
+            activites: [
+                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
+                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
+            ],
         },
         {
+            id: 'C4',
             code: 'B1.4',
-            intitule: 'Travailler en mode projet',
-            description: 'Analyser les objectifs et les modalités d\'organisation d\'un projet',
-            niveau: 'en-cours',
-            pourcentage: 65,
-            activites: ['Projet de groupe - Application web', 'Gestion de projet Agile']
+            titre: 'Travailler en mode projet',
+            sousCompetences: [
+                'Analyser les objectifs et les modalités d\'organisation d\'un projet',
+                'Planifier les activités',
+                'Évaluer les indicateurs de suivi d\'un projet et analyser les écarts',
+            ],
+            activites: [
+                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
+                { nom: 'Application Location véhicule', lien: '/realisations#location-vehicule', type: 'scolaire' },
+                { nom: 'Mini jeux RPG', lien: '/realisations#rpg', type: 'scolaire' },
+                { nom: 'Application Musculation', lien: '/realisations#musculation', type: 'personnel' },
+                { nom: 'Mini jeux Unity', lien: '/realisations#unity', type: 'personnel' },
+            ],
         },
         {
+            id: 'C5',
             code: 'B1.5',
-            intitule: 'Mettre à disposition des utilisateurs un service informatique',
-            description: 'Réaliser les tests d\'intégration et d\'acceptation',
-            niveau: 'acquis',
-            pourcentage: 85,
-            activites: ['Tests unitaires React', 'Déploiement application']
+            titre: 'Mettre à disposition des utilisateurs un service informatique',
+            sousCompetences: [
+                'Réaliser les tests d\'intégration et d\'acceptation d\'un service',
+                'Déployer un service',
+                'Accompagner les utilisateurs dans la mise en place d\'un service',
+            ],
+            activites: [
+                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
+                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
+                { nom: 'TP déploiement d\'un site web', lien: '/realisations#deploiement', type: 'scolaire' },
+                { nom: 'Windows Server', lien: '/realisations#windows-server', type: 'scolaire' },
+            ],
         },
         {
+            id: 'C6',
             code: 'B1.6',
-            intitule: 'Organiser son développement professionnel',
-            description: 'Mettre en place son environnement d\'apprentissage personnel',
-            niveau: 'acquis',
-            pourcentage: 95,
-            activites: ['Veille technologique', 'Formation continue TypeScript']
-        },
-        // Bloc 2 - Conception et développement d'applications
-        {
-            code: 'B2.1',
-            intitule: 'Concevoir et développer une solution applicative',
-            description: 'Analyser et modéliser une application',
-            niveau: 'en-cours',
-            pourcentage: 75,
-            activites: ['Application de gestion', 'API REST avec Spring Boot']
-        },
-        {
-            code: 'B2.2',
-            intitule: 'Assurer la maintenance corrective ou évolutive',
-            description: 'Analyser et corriger un dysfonctionnement',
-            niveau: 'en-cours',
-            pourcentage: 60,
-            activites: ['Correction de bugs', 'Refactoring de code legacy']
-        },
-        {
-            code: 'B2.3',
-            intitule: 'Gérer les données',
-            description: 'Concevoir et réaliser une base de données',
-            niveau: 'acquis',
-            pourcentage: 80,
-            activites: ['Base de données PostgreSQL', 'Modélisation MCD/MLD']
+            titre: 'Organiser son développement professionnel',
+            sousCompetences: [
+                'Mettre en place son environnement d\'apprentissage personnel',
+                'Mettre en œuvre des outils et stratégies de veille informationnelle',
+                'Gérer son identité professionnelle',
+                'Développer son projet professionnel',
+            ],
+            activites: [
+                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
+                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
+                { nom: 'Mini-jeux RPG', lien: '/realisations#rpg', type: 'scolaire' },
+                { nom: 'Application Musculation', lien: '/realisations#musculation', type: 'personnel' },
+                { nom: 'Mini jeux Unity', lien: '/realisations#unity', type: 'personnel' },
+            ],
         },
     ];
 
-    const getNiveauIcon = (niveau: string) => {
-        switch (niveau) {
-            case 'acquis':
-                return <CheckCircle color="success" />;
-            case 'en-cours':
-                return <HourglassEmpty color="warning" />;
-            case 'non-acquis':
-                return <RadioButtonUnchecked color="error" />;
-            default:
-                return <RadioButtonUnchecked />;
-        }
-    };
-
-    const getNiveauChip = (niveau: string) => {
-        switch (niveau) {
-            case 'acquis':
-                return <Chip label="Acquis" color="success" size="small" />;
-            case 'en-cours':
-                return <Chip label="En cours" color="warning" size="small" />;
-            case 'non-acquis':
-                return <Chip label="Non acquis" color="error" size="small" />;
-            default:
-                return <Chip label="Inconnu" size="small" />;
-        }
-    };
-
     // Calcul des statistiques
-    const totalCompetences = competencesBTS.length;
-    const competencesAcquises = competencesBTS.filter(c => c.niveau === 'acquis').length;
-    const competencesEnCours = competencesBTS.filter(c => c.niveau === 'en-cours').length;
-    const progressionGlobale = Math.round(
-        competencesBTS.reduce((acc, c) => acc + c.pourcentage, 0) / totalCompetences
-    );
+    const totalCompetences = competences.length;
+    const totalActivites = competences.reduce((acc, comp) => acc + comp.activites.length, 0);
 
     return (
         <Box sx={{ py: 8, minHeight: 'calc(100vh - 64px)', bgcolor: 'background.default' }}>
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Typography variant="h2" sx={{ mb: 2, textAlign: 'center' }}>
-                    Tableau des Compétences BTS SIO SLAM
+                    Les Compétences BTS SIO SLAM
                 </Typography>
                 <Typography variant="body1" color="text.secondary" sx={{ mb: 6, textAlign: 'center' }}>
-                    Suivi de l'acquisition des compétences du référentiel BTS SIO
+                    Référentiel des compétences et activités associées
                 </Typography>
 
                 {/* Statistiques globales */}
-                <Paper sx={{ p: 4, mb: 4 }}>
-                    <Typography variant="h5" gutterBottom fontWeight={600}>
-                        Progression globale
-                    </Typography>
-                    <Box sx={{ mb: 3 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                            <Typography variant="body1">Taux de validation</Typography>
-                            <Typography variant="body1" fontWeight={600}>
-                                {progressionGlobale}%
-                            </Typography>
-                        </Box>
-                        <LinearProgress
-                            variant="determinate"
-                            value={progressionGlobale}
-                            sx={{ height: 12, borderRadius: 6 }}
-                        />
-                    </Box>
-
-                    <Box sx={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
-                        <Box>
-                            <Typography variant="h4" color="success.main" fontWeight={700}>
-                                {competencesAcquises}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Compétences acquises
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Typography variant="h4" color="warning.main" fontWeight={700}>
-                                {competencesEnCours}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                En cours d'acquisition
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Typography variant="h4" color="primary.main" fontWeight={700}>
-                                {totalCompetences}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Total de compétences
-                            </Typography>
-                        </Box>
-                    </Box>
+                <Paper sx={{ p: 3, mb: 4, bgcolor: 'primary.main', color: 'white' }}>
+                    <Grid container spacing={3}>
+                        <Grid size={12} sx={{sm: 6}}>
+                            <Box textAlign="center">
+                                <Typography variant="h3" fontWeight={700}>
+                                    {totalCompetences}
+                                </Typography>
+                                <Typography variant="body1">
+                                    Compétences du référentiel
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid size={12} sx={{sm: 6}}>
+                            <Box textAlign="center">
+                                <Typography variant="h3" fontWeight={700}>
+                                    {totalActivites}
+                                </Typography>
+                                <Typography variant="body1">
+                                    Activités réalisées
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
                 </Paper>
 
-                {/* Tableau des compétences */}
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow sx={{ bgcolor: 'primary.main' }}>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Code</TableCell>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Intitulé</TableCell>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Description</TableCell>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }} align="center">Statut</TableCell>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }} align="center">Progression</TableCell>
-                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Activités validantes</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {competencesBTS.map((competence) => (
-                                <TableRow
-                                    key={competence.code}
-                                    sx={{
-                                        '&:hover': { bgcolor: 'action.hover' },
-                                        transition: 'background-color 0.3s'
-                                    }}
-                                >
-                                    <TableCell>
-                                        <Chip label={competence.code} color="primary" variant="outlined" size="small" />
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography variant="body2" fontWeight={600}>
-                                            {competence.intitule}
+                {/* Navigation rapide */}
+                <Paper sx={{ p: 2, mb: 4 }}>
+                    <Typography variant="h6" gutterBottom>
+                        Navigation rapide :
+                    </Typography>
+                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                        {competences.map((comp, index) => (
+                            <Chip
+                                key={comp.id}
+                                label={`Compétence ${index + 1}`}
+                                component="a"
+                                href={`#${comp.id}`}
+                                clickable
+                                color="primary"
+                                variant="outlined"
+                            />
+                        ))}
+                    </Stack>
+                </Paper>
+
+                {/* Liste des compétences */}
+                <Stack spacing={3}>
+                    {competences.map((competence, index) => (
+                        <Accordion
+                            key={competence.id}
+                            id={competence.id}
+                            defaultExpanded={index === 0}
+                            elevation={3}
+                            sx={{
+                                scrollMarginTop: '80px',
+                            }}
+                        >
+                            <AccordionSummary
+                                expandIcon={<ExpandMore />}
+                                sx={{
+                                    bgcolor: 'background.paper',
+                                    '&:hover': { bgcolor: 'action.hover' }
+                                }}
+                            >
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, width: '100%' }}>
+                                    <Chip
+                                        label={competence.code}
+                                        color="primary"
+                                        size="small"
+                                        sx={{ fontWeight: 700 }}
+                                    />
+                                    <Box>
+                                        <Typography variant="h6" fontWeight={600}>
+                                            Compétence n°{index + 1}
                                         </Typography>
-                                    </TableCell>
-                                    <TableCell>
                                         <Typography variant="body2" color="text.secondary">
-                                            {competence.description}
+                                            {competence.titre}
                                         </Typography>
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        {getNiveauChip(competence.niveau)}
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                            {getNiveauIcon(competence.niveau)}
-                                            <Typography variant="body2" fontWeight={600}>
-                                                {competence.pourcentage}%
-                                            </Typography>
-                                        </Box>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                                            {competence.activites.map((activite, idx) => (
-                                                <Typography key={idx} variant="caption" color="text.secondary">
-                                                    • {activite}
+                                    </Box>
+                                </Box>
+                            </AccordionSummary>
+
+                            <AccordionDetails>
+                                <Grid container spacing={3}>
+                                    {/* Sous-compétences */}
+                                    <Grid size={12}>
+                                        <Card variant="outlined">
+                                            <CardContent>
+                                                <Typography variant="h6" gutterBottom fontWeight={600} color="primary">
+                                                    📋 Sous-compétences
                                                 </Typography>
-                                            ))}
-                                        </Box>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                                                <List>
+                                                    {competence.sousCompetences.map((sc, idx) => (
+                                                        <ListItem key={idx} sx={{ py: 0.5 }}>
+                                                            <CheckCircle sx={{ mr: 1, fontSize: 18, color: 'success.main' }} />
+                                                            <Typography variant="body2">{sc}</Typography>
+                                                        </ListItem>
+                                                    ))}
+                                                </List>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+
+                                    {/* Toutes les activités (scolaires, personnelles, stages) */}
+                                    <Grid size={12}>
+                                        <Card variant="outlined">
+                                            <CardContent>
+                                                <Typography variant="h6" gutterBottom fontWeight={600} color="primary">
+                                                    🎯 Réalisations validant cette compétence
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                                                    Projets scolaires, personnels et de stage
+                                                </Typography>
+                                                <List>
+                                                    {competence.activites.map((activite, idx) => (
+                                                        <ListItem key={idx} sx={{ py: 0.5 }}>
+                                                            <MuiLink
+                                                                component={Link}
+                                                                to={activite.lien || '/realisations'}
+                                                                underline="hover"
+                                                                sx={{
+                                                                    color: 'primary.main',
+                                                                    fontWeight: 500,
+                                                                    '&:hover': { color: 'primary.dark' }
+                                                                }}
+                                                            >
+                                                                • {activite.nom}
+                                                            </MuiLink>
+                                                        </ListItem>
+                                                    ))}
+                                                </List>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                </Grid>
+                            </AccordionDetails>
+                        </Accordion>
+                    ))}
+                </Stack>
             </Container>
         </Box>
     );
