@@ -96,9 +96,6 @@ const Stages = () => {
                 {
                     titre: 'Évolution du module Actualités',
                     description: 'Enrichissement du module existant par l’ajout d’un support multimédia pour les vidéos.',
-                    images: [
-                        '/assets/Stages-CPAM/CPAM-Formualaire.png',
-                    ],
                     technologies: ['React', 'TypeScript'],
                     realisations: [
                         'Intégration d’un lecteur et gestion de l’affichage de contenus vidéo dans le flux d’actualités',

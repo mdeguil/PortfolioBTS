@@ -47,7 +47,6 @@ const Competences = () => {
             activites: [
                 { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
                 { nom: 'GLPI', lien: '/realisations#glpi', type: 'scolaire' },
-                { nom: 'Windows Server', lien: '/realisations#windows-server', type: 'scolaire' },
             ],
         },
         {
@@ -61,7 +60,9 @@ const Competences = () => {
             ],
             activites: [
                 { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
+                { nom: 'Stage CPAM de la charente', lien: '/stages', type: 'scolaire' },
+                { nom: 'Stage la SMATIS', lien: '/stage', type: 'scolaire' },
+
             ],
         },
         {
