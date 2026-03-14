@@ -1,6 +1,15 @@
 import { Box, Container, Typography, Grid, Card, CardContent,  Button, Chip, Stack,  Accordion, AccordionSummary, AccordionDetails, ImageList, ImageListItem, Divider } from '@mui/material';
 import { GitHub, Launch, ExpandMore, Code, CalendarToday } from '@mui/icons-material';
 
+// Imports des images FirstGame
+import level_01 from '../assets/projet_perso/Level-01.png';
+import level_03 from '../assets/projet_perso/Level-03.png';
+import level_03_end from '../assets/projet_perso/Level-03-end.png';
+
+// Imports des images Mura (si tu en as)
+// import mura1 from '../assets/projet_perso/mura-1.png';
+// import mura2 from '../assets/projet_perso/mura-2.png';
+
 interface Projet {
     id: number;
     titre: string;
@@ -13,7 +22,7 @@ interface Projet {
     github?: string;
     demo?: string;
     statut: 'En cours' | 'Terminé' | 'En pause';
-    afficherDetails?: boolean; // Nouvelle propriété
+    afficherDetails?: boolean;
 }
 
 const Projets = () => {
@@ -23,10 +32,10 @@ const Projets = () => {
             titre: 'Mura',
             description: 'Application développée en TypeScript',
             descriptionLongue: 'Projet personnel développé en TypeScript permettant de [ajoute ta description détaillée ici - qu\'est-ce que fait Mura exactement ?]',
-            images: [
-                '/assets/projets/mura-1.png',
-                '/assets/projets/mura-2.png',
-            ],
+            // images: [
+            //     mura1,  // ← Décommente quand tu auras les images
+            //     mura2,
+            // ],
             technologies: ['TypeScript'],
             fonctionnalites: [
                 'Fonctionnalité 1',
@@ -44,9 +53,9 @@ const Projets = () => {
             description: 'Découverte du langage C# avec Unity sur la création d\'un mini jeu vidéo',
             descriptionLongue: 'Premier projet de développement de jeu vidéo réalisé avec Unity et C#. Ce projet m\'a permis de découvrir les bases du développement de jeux, la gestion de la physique, les interactions utilisateur et la logique de gameplay.',
             images: [
-                '/assets/projets/firstgame-1.png',
-                '/assets/projets/firstgame-2.png',
-                '/assets/projets/firstgame-3.png',
+                level_01,      // ← Utilise les variables importées
+                level_03,
+                level_03_end,
             ],
             technologies: ['C#', 'Unity', 'Visual Studio'],
             fonctionnalites: [
@@ -68,7 +77,7 @@ const Projets = () => {
             date: 'Janvier 2026',
             github: 'https://github.com/mdeguil/PortfolioBTS',
             statut: 'En cours',
-            afficherDetails: false, // Pas de détails pour le portfolio
+            afficherDetails: false,
         },
     ];
 
