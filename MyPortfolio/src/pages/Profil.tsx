@@ -151,15 +151,6 @@ const Profil = () => {
                                     />
                                 </Box>
                             ))}
-                            <Button
-                                component={Link}
-                                to="/competences"
-                                variant="outlined"
-                                fullWidth
-                                sx={{ mt: 2 }}
-                            >
-                                Voir le tableau complet BTS
-                            </Button>
                         </Paper>
                     </Grid>
 
