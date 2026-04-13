@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import profileImage from '../../public/ME.png';
+import profileImage from '/ME.png';
 
 const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);

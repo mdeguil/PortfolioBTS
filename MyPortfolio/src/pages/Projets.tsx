@@ -2,9 +2,9 @@ import { Box, Container, Typography, Grid, Card, CardContent,  Button, Chip, Sta
 import { GitHub, Launch, ExpandMore, Code, CalendarToday } from '@mui/icons-material';
 
 // Imports des images FirstGame
-import level_01 from '../../public/projet_perso/Level-01.png';
-import level_03 from '../../public/projet_perso/Level-03.png';
-import level_03_end from '../../public/projet_perso/Level-03-end.png';
+import level_01 from '/projet_perso/Level-01.png';
+import level_03 from '/projet_perso/Level-03.png';
+import level_03_end from '/projet_perso/Level-03-end.png';
 
 // Imports des images Mura (si tu en as)
 // import mura1 from '../assets/projet_perso/mura-1.png';

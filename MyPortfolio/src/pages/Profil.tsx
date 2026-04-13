@@ -2,7 +2,7 @@ import { Box, Container, Typography, Button, Stack, Avatar, Paper, Grid, LinearP
 import { Code, School } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import profileImage from '../../public/ME.png';
+import profileImage from '/ME.png';
 import SocialLinks from "../components/SocialLinks.tsx";
 
 const MotionBox = motion(Box);

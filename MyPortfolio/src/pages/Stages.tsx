@@ -14,9 +14,9 @@ import {
     ImageListItem, ImageList
 } from '@mui/material';
 import { Business, CalendarToday, LocationOn, ExpandMore, FolderOpen } from '@mui/icons-material';
-import SMATIS_Horizon from '../../public/Stage-SMATIS/SMATIS-Horizon.png';
-import SMATIS_Horizon_Stat from '../../public/Stage-SMATIS/SMATIS-Horizon-Statistiques.png';
-import CPAM_Formulaire from '../../public/Stage-CPAM/CPAM-Formulaire.png';
+import SMATIS_Horizon from '/Stage-SMATIS/SMATIS-Horizon.png';
+import SMATIS_Horizon_Stat from '/Stage-SMATIS/SMATIS-Horizon-Statistiques.png';
+import CPAM_Formulaire from '/Stage-CPAM/CPAM-Formulaire.png';
 
 interface Projet {
     titre: string;
