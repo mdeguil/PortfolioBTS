@@ -30,17 +30,23 @@ const Projets = () => {
         {
             id: 1,
             titre: 'Mura',
-            description: 'Application développée en TypeScript',
-            descriptionLongue: 'Projet personnel développé en TypeScript permettant de [ajoute ta description détaillée ici - qu\'est-ce que fait Mura exactement ?]',
-            // images: [
-            //     mura1,  // ← Décommente quand tu auras les images
-            //     mura2,
-            // ],
-            technologies: ['TypeScript'],
+            description: 'Outil moderne de gestion de projet open-source inspiré de Trello',
+            descriptionLongue: 'Mura est une application complète de gestion de projet développée avec une architecture moderne. Inspirée de Trello, elle permet d\'organiser des projets en tableaux (boards), listes et cartes. Le backend est développé en Spring Boot avec une API REST sécurisée par JWT, le frontend utilise React avec TypeScript, et PostgreSQL pour la base de données. Le projet est entièrement conteneurisé avec Docker pour faciliter le déploiement.',
+            images: [
+                // muraBoard,
+                // muraCard,
+                // muraLogin,
+            ],
+            technologies: ['React', 'TypeScript', 'Spring Boot', 'Java', 'PostgreSQL', 'Docker', 'JWT'],
             fonctionnalites: [
-                'Fonctionnalité 1',
-                'Fonctionnalité 2',
-                'Fonctionnalité 3',
+                'Organisation de projets en tableaux (boards)',
+                'Gestion de listes et cartes pour structurer les tâches',
+                'Système d\'étiquettes avec code couleur',
+                'Gestion des membres et assignation de cartes',
+                'Définition de dates d\'échéance',
+                'Authentification sécurisée avec JWT',
+                'API REST documentée avec Swagger',
+                'Architecture conteneurisée avec Docker',
             ],
             date: '2026',
             github: 'https://github.com/mdeguil/mura',

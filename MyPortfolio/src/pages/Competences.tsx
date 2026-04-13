@@ -1,11 +1,11 @@
-import { Box, Container, Typography, Paper, Grid, Chip, Stack, Accordion, AccordionSummary, AccordionDetails, List, ListItem, Link as MuiLink, Card, CardContent } from '@mui/material';
-import { ExpandMore, CheckCircle } from '@mui/icons-material';
+import { Box, Container, Typography, Paper, Grid, Chip, Stack, Accordion, AccordionSummary, AccordionDetails, List, ListItem, Link as MuiLink, Card, CardContent, Button } from '@mui/material';
+import { ExpandMore, CheckCircle, Download } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 interface Activite {
     nom: string;
     lien?: string;
-    type?: 'scolaire' | 'personnel' | 'stage'; // Optionnel pour distinguer si besoin
+    type?: 'scolaire' | 'personnel' | 'stage';
 }
 
 interface Competence {
@@ -31,8 +31,8 @@ const Competences = () => {
                 'Vérifier le respect des règles d\'utilisation des ressources numériques',
             ],
             activites: [
-                { nom: 'GLPI', lien: '/realisations#glpi', type: 'scolaire' },
-                { nom: 'Activité de sauvegardes', lien: '/realisations#sauvegardes', type: 'scolaire' },
+                { nom: 'Gitlab + Documentation (README)', lien: '/realisations', type: 'scolaire' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
             ],
         },
         {
@@ -45,8 +45,10 @@ const Competences = () => {
                 'Traiter des demandes concernant les applications',
             ],
             activites: [
-                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'GLPI', lien: '/realisations#glpi', type: 'scolaire' },
+                { nom: 'Echappee ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'ChronosForamtion ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'Stage la CPAM de la charente', lien: '/stages', type: 'stage' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
             ],
         },
         {
@@ -59,10 +61,8 @@ const Competences = () => {
                 'Participer à l\'évolution d\'un site Web exploitant les données de l\'organisation',
             ],
             activites: [
-                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'Stage CPAM de la charente', lien: '/stages', type: 'scolaire' },
-                { nom: 'Stage la SMATIS', lien: '/stage', type: 'scolaire' },
-
+                { nom: 'Site : Aunis Freeware ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
             ],
         },
         {
@@ -75,11 +75,11 @@ const Competences = () => {
                 'Évaluer les indicateurs de suivi d\'un projet et analyser les écarts',
             ],
             activites: [
-                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'Application Location véhicule', lien: '/realisations#location-vehicule', type: 'scolaire' },
-                { nom: 'Mini jeux RPG', lien: '/realisations#rpg', type: 'scolaire' },
-                { nom: 'Application Musculation', lien: '/realisations#musculation', type: 'personnel' },
-                { nom: 'Mini jeux Unity', lien: '/realisations#unity', type: 'personnel' },
+                { nom: 'Echappee ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'ChronosForamtion ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'Stage la CPAM de la charente', lien: '/stages', type: 'stage' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
+                { nom: 'Mura', lien: '/projets', type: 'personnel' },
             ],
         },
         {
@@ -92,10 +92,11 @@ const Competences = () => {
                 'Accompagner les utilisateurs dans la mise en place d\'un service',
             ],
             activites: [
-                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
-                { nom: 'TP déploiement d\'un site web', lien: '/realisations#deploiement', type: 'scolaire' },
-                { nom: 'Windows Server', lien: '/realisations#windows-server', type: 'scolaire' },
+                { nom: 'Echappee ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'ChronosForamtion ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
+                { nom: 'Portfolio ', lien: '/projets', type: 'personnel' },
+                { nom: 'Mura', lien: '/projets', type: 'personnel' },
             ],
         },
         {
@@ -109,18 +110,18 @@ const Competences = () => {
                 'Développer son projet professionnel',
             ],
             activites: [
-                { nom: 'Site Aunis Freeware', lien: '/realisations#aunis', type: 'scolaire' },
-                { nom: 'Packet Tracer', lien: '/realisations#packet-tracer', type: 'scolaire' },
-                { nom: 'Mini-jeux RPG', lien: '/realisations#rpg', type: 'scolaire' },
-                { nom: 'Application Musculation', lien: '/realisations#musculation', type: 'personnel' },
-                { nom: 'Mini jeux Unity', lien: '/realisations#unity', type: 'personnel' },
+                { nom: 'Echappee ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'ChronosForamtion ', lien: '/realisations', type: 'scolaire' },
+                { nom: 'Stage la CPAM de la charente', lien: '/stages', type: 'stage' },
+                { nom: 'La Smatis : Horizon ', lien: '/stages', type: 'stage' },
+                { nom: 'First Game', lien: '/projets', type: 'personnel' },
+                { nom: 'Mura', lien: '/projets', type: 'personnel' },
             ],
         },
     ];
 
     // Calcul des statistiques
     const totalCompetences = competences.length;
-    const totalActivites = competences.reduce((acc, comp) => acc + comp.activites.length, 0);
 
     return (
         <Box sx={{ py: 8, minHeight: 'calc(100vh - 64px)', bgcolor: 'background.default' }}>
@@ -132,10 +133,10 @@ const Competences = () => {
                     Référentiel des compétences et activités associées
                 </Typography>
 
-                {/* Statistiques globales */}
+                {/* Statistiques globales avec bouton de téléchargement */}
                 <Paper sx={{ p: 3, mb: 4, bgcolor: 'primary.main', color: 'white' }}>
-                    <Grid container spacing={3}>
-                        <Grid size={12} sx={{sm: 6}}>
+                    <Grid container spacing={3} alignItems="center">
+                        <Grid size={12} sx={{ md: 4 }}>
                             <Box textAlign="center">
                                 <Typography variant="h3" fontWeight={700}>
                                     {totalCompetences}
@@ -145,14 +146,34 @@ const Competences = () => {
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid size={12} sx={{sm: 6}}>
+                        <Grid size={12} sx={{ md: 4 }}>
                             <Box textAlign="center">
                                 <Typography variant="h3" fontWeight={700}>
-                                    {totalActivites}
+                                    8
                                 </Typography>
                                 <Typography variant="body1">
                                     Activités réalisées
                                 </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid size={12} sx={{ md: 4 }}>
+                            <Box textAlign="center">
+                                <Button
+                                    variant="outlined"
+                                    startIcon={<Download />}
+                                    href="../public/tableau-competences.xlsx"
+                                    download="Tableau_Competences_BTS_SIO_DEGUIL_Mateo.xlsx"
+                                    sx={{
+                                        color: 'white',
+                                        borderColor: 'white',
+                                        '&:hover': {
+                                            borderColor: 'white',
+                                            backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                                        }
+                                    }}
+                                >
+                                    Télécharger le tableau de compétence
+                                </Button>
                             </Box>
                         </Grid>
                     </Grid>
@@ -236,7 +257,7 @@ const Competences = () => {
                                         </Card>
                                     </Grid>
 
-                                    {/* Toutes les activités (scolaires, personnelles, stages) */}
+                                    {/* Toutes les activités */}
                                     <Grid size={12}>
                                         <Card variant="outlined">
                                             <CardContent>
