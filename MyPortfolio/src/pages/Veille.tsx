@@ -38,54 +38,10 @@ const Veille = () => {
                     Veille Technologique
                 </Typography>
                 <Typography variant="body1" color="text.secondary" sx={{ mb: 6, textAlign: 'center' }}>
-                    Mes découvertes et apprentissages sur les technologies web
+                    En construction
                 </Typography>
 
-                <Grid container spacing={4}>
-                    {veilleItems.map((item) => (
-                        <Grid size={12} sx={{ md: 6, lg: 4}} key={item.id}>
-                            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                {item.image && (
-                                    <CardMedia
-                                        component="img"
-                                        height="140"
-                                        image={item.image}
-                                        alt={item.titre}
-                                    />
-                                )}
-                                <CardContent sx={{ flexGrow: 1 }}>
-                                    <Chip
-                                        label={item.categorie}
-                                        size="small"
-                                        color="primary"
-                                        sx={{ mb: 2 }}
-                                    />
-                                    <Typography gutterBottom variant="h6" component="h3">
-                                        {item.titre}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary" paragraph>
-                                        {item.description}
-                                    </Typography>
-                                    <Typography variant="caption" color="text.secondary">
-                                        {item.date}
-                                    </Typography>
-                                </CardContent>
-                                {item.lien && (
-                                    <CardActions>
-                                        <Button
-                                            size="small"
-                                            startIcon={<OpenInNew />}
-                                            href={item.lien}
-                                            target="_blank"
-                                        >
-                                            Lire l'article
-                                        </Button>
-                                    </CardActions>
-                                )}
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
+
             </Container>
         </Box>
     );
