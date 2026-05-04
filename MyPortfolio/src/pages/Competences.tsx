@@ -161,7 +161,7 @@ const Competences = () => {
                                 <Button
                                     variant="outlined"
                                     startIcon={<Download />}
-                                    href="../public/tableau-competences.xlsx"
+                                    href="/tableau-competences.xlsx"
                                     download="Tableau_Competences_BTS_SIO_DEGUIL_Mateo.xlsx"
                                     sx={{
                                         color: 'white',
