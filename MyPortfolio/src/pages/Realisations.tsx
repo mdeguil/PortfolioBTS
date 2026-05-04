@@ -32,7 +32,7 @@ const Activite = () => {
                 '/projet_scolaire/aunis_freeware/applications.png',
                 '/projet_scolaire/aunis_freeware/connexion.png',
             ],
-            githubUrl: 'https://github.com/'
+            githubUrl: 'https://github.com/mdeguil/Aunis-Freeware'
         },
         {
             id: 2,
@@ -48,11 +48,11 @@ const Activite = () => {
                 'Schémat de donnée',
                 'Documentation de l\'application',
             ],
-            statut: 'En cours',
+            statut: 'Terminé',
             images: [
-                '/projet_scolaire/echappee/img1.png',
-                '/projet_scolaire/echappee/img2.png',
-                '/projet_scolaire/echappee/img3.png',
+                '/projet_scolaire/echappee/cree_itineraire.png',
+                '/projet_scolaire/echappee/Detail_itineraire.png',
+                '/projet_scolaire/echappee/Visite.png',
             ],
             githubUrl: 'https://gitlab.com/Echappee',
         },
@@ -69,12 +69,13 @@ const Activite = () => {
                 'Schémat de donnée',
                 'Documentation de l\'application',
             ],
-            statut: 'En cours',
+            statut: 'Terminé',
             images: [
-                '/projet_scolaire/chronosformation/img1.png',
-                '/projet_scolaire/chronosformation/img2.png',
+                '/projet_scolaire/chronosformation/Catalogue.png',
+                '/projet_scolaire/chronosformation/ListeFormation.png',
+                '/projet_scolaire/chronosformation/Planning.png',
             ],
-            githubUrl: 'https://gitlab.com/'
+            githubUrl: 'https://gitlab.lev-btssio.fr/mateo.deguil/chronosformation'
         }
     ];
 

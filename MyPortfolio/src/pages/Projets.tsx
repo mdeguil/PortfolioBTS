@@ -6,9 +6,6 @@ import level_01 from '/projet_perso/Level-01.png';
 import level_03 from '/projet_perso/Level-03.png';
 import level_03_end from '/projet_perso/Level-03-end.png';
 
-// Imports des images Mura (si tu en as)
-// import mura1 from '../assets/projet_perso/mura-1.png';
-// import mura2 from '../assets/projet_perso/mura-2.png';
 
 interface Projet {
     id: number;
