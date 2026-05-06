@@ -1,5 +1,6 @@
-import { Box, Container, Typography, Grid, Card, CardContent,  Button, Chip, Stack,  Accordion, AccordionSummary, AccordionDetails, ImageList, ImageListItem, Divider } from '@mui/material';
-import { GitHub, Launch, ExpandMore, Code, CalendarToday } from '@mui/icons-material';
+import { Box, Container, Typography, Grid, Card, CardContent, Button, Chip, Stack, Accordion, AccordionSummary, AccordionDetails, ImageList, ImageListItem, Divider } from '@mui/material';
+import { GitHub, Launch, ExpandMore, Code, CalendarToday, CheckCircle } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 // Imports des images FirstGame
 import level_01 from '/projet_perso/Level-01.png';
@@ -20,6 +21,7 @@ interface Projet {
     demo?: string;
     statut: 'En cours' | 'Terminé' | 'En pause';
     afficherDetails?: boolean;
+    competencesValidees?: string[];
 }
 
 const Projets = () => {
@@ -48,6 +50,7 @@ const Projets = () => {
             date: '2026',
             github: 'https://github.com/mdeguil/mura',
             statut: 'En cours',
+            competencesValidees: ['B1.4', 'B1.5', 'B1.6'],
             afficherDetails: true,
         },
         {
@@ -56,7 +59,7 @@ const Projets = () => {
             description: 'Découverte du langage C# avec Unity sur la création d\'un mini jeu vidéo',
             descriptionLongue: 'Premier projet de développement de jeu vidéo réalisé avec Unity et C#. Ce projet m\'a permis de découvrir les bases du développement de jeux, la gestion de la physique, les interactions utilisateur et la logique de gameplay.',
             images: [
-                level_01,      // ← Utilise les variables importées
+                level_01,
                 level_03,
                 level_03_end,
             ],
@@ -71,6 +74,7 @@ const Projets = () => {
             github: 'https://github.com/mdeguil/FirstGame',
             statut: 'Terminé',
             afficherDetails: true,
+            competencesValidees: ['B1.6'],
         },
         {
             id: 3,
@@ -81,6 +85,7 @@ const Projets = () => {
             github: 'https://github.com/mdeguil/PortfolioBTS',
             statut: 'En cours',
             afficherDetails: false,
+            competencesValidees: ['B1.5'],
         },
     ];
 
@@ -109,7 +114,7 @@ const Projets = () => {
 
                 {/* Statistiques */}
                 <Grid container spacing={3} sx={{ mb: 6 }}>
-                    <Grid size={12} sx={{ sm: 4}}>
+                    <Grid size={12} sx={{ sm: 4 }}>
                         <Card sx={{ textAlign: 'center', p: 2 }}>
                             <Typography variant="h3" color="primary" fontWeight={700}>
                                 {projets.length}
@@ -119,7 +124,7 @@ const Projets = () => {
                             </Typography>
                         </Card>
                     </Grid>
-                    <Grid size={6} sx={{ sm: 4}}>
+                    <Grid size={6} sx={{ sm: 4 }}>
                         <Card sx={{ textAlign: 'center', p: 2 }}>
                             <Typography variant="h3" color="success.main" fontWeight={700}>
                                 {projets.filter(p => p.statut === 'Terminé').length}
@@ -129,7 +134,7 @@ const Projets = () => {
                             </Typography>
                         </Card>
                     </Grid>
-                    <Grid  size={6} sx={{ sm: 4}}>
+                    <Grid size={6} sx={{ sm: 4 }}>
                         <Card sx={{ textAlign: 'center', p: 2 }}>
                             <Typography variant="h3" color="primary.main" fontWeight={700}>
                                 {projets.filter(p => p.statut === 'En cours').length}
@@ -166,7 +171,7 @@ const Projets = () => {
                                     />
                                 </Box>
 
-                                <Typography variant="body1" paragraph>
+                                <Typography variant="body1" >
                                     {projet.description}
                                 </Typography>
 
@@ -211,7 +216,6 @@ const Projets = () => {
                                     <>
                                         <Divider sx={{ my: 3 }} />
 
-                                        {/* Détails du projet (accordéon) */}
                                         <Accordion elevation={2}>
                                             <AccordionSummary expandIcon={<ExpandMore />}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -225,7 +229,7 @@ const Projets = () => {
                                                 <Grid container spacing={3}>
                                                     {/* Galerie d'images */}
                                                     {projet.images && projet.images.length > 0 && (
-                                                        <Grid  size={12}>
+                                                        <Grid size={12}>
                                                             <Typography variant="subtitle1" gutterBottom fontWeight={600}>
                                                                 📸 Captures d'écran
                                                             </Typography>
@@ -257,31 +261,51 @@ const Projets = () => {
 
                                                     {/* Description détaillée */}
                                                     {projet.descriptionLongue && (
-                                                        <Grid  size={12}>
+                                                        <Grid size={12} sx={{ md: 6 }}>
                                                             <Typography variant="subtitle1" gutterBottom fontWeight={600}>
                                                                 📝 Description détaillée
                                                             </Typography>
-                                                            <Typography variant="body1" paragraph>
+                                                            <Typography variant="body2">
                                                                 {projet.descriptionLongue}
                                                             </Typography>
                                                         </Grid>
                                                     )}
 
-                                                    {/* Fonctionnalités */}
-                                                    {projet.fonctionnalites && projet.fonctionnalites.length > 0 && (
-                                                        <Grid size={12}>
-                                                            <Typography variant="subtitle1" gutterBottom fontWeight={600}>
-                                                                ⚡ Fonctionnalités principales
-                                                            </Typography>
-                                                            <Stack spacing={0.5}>
-                                                                {projet.fonctionnalites.map((fonctionnalite, idx) => (
-                                                                    <Typography key={idx} variant="body2" color="text.secondary">
-                                                                        ✓ {fonctionnalite}
-                                                                    </Typography>
+                                                    {/* Fonctionnalités et Compétences — colonne droite */}
+                                                    <Grid size={12} sx={{ md: 6 }}>
+                                                        {projet.fonctionnalites && projet.fonctionnalites.length > 0 && (
+                                                            <>
+                                                                <Typography variant="subtitle1" gutterBottom fontWeight={600}>
+                                                                    ⚡ Fonctionnalités principales
+                                                                </Typography>
+                                                                <Stack spacing={1}>
+                                                                    {projet.fonctionnalites.map((fonctionnalite, idx) => (
+                                                                        <Box key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                                                            <CheckCircle sx={{ fontSize: 16, color: 'success.main' }} />
+                                                                            <Typography variant="body2">{fonctionnalite}</Typography>
+                                                                        </Box>
+                                                                    ))}
+                                                                </Stack>
+                                                            </>
+                                                        )}
+
+                                                        {/* Compétences validées */}
+                                                        {projet.competencesValidees && projet.competencesValidees.length > 0 && (
+                                                            <Stack direction="row" spacing={1} sx={{ mt: 2 }} flexWrap="wrap">
+                                                                {projet.competencesValidees.map((comp) => (
+                                                                    <Chip
+                                                                        key={comp}
+                                                                        label={comp}
+                                                                        size="small"
+                                                                        color="success"
+                                                                        component={Link}
+                                                                        to={`/competences#${comp.replace('B1.', 'C')}`}
+                                                                        clickable
+                                                                    />
                                                                 ))}
                                                             </Stack>
-                                                        </Grid>
-                                                    )}
+                                                        )}
+                                                    </Grid>
                                                 </Grid>
                                             </AccordionDetails>
                                         </Accordion>

@@ -24,6 +24,8 @@ interface Projet {
     images?: string[];
     technologies: string[];
     realisations: string[];
+    competencesValidees?: string[];
+
 }
 
 interface Stage {
@@ -62,7 +64,8 @@ const Stages = () => {
                         'Implémentation de la gestion des rôles',
                         'Génération automatisée de documents au format PDF',
                         'Consommation d’une API REST pour la recherche de communes françaises',
-                    ]
+                    ],
+                    competencesValidees: ['B1.2', 'B1.4', 'B1.6'],
                 },
             ]
         }  ,
@@ -91,7 +94,8 @@ const Stages = () => {
                         'Développement d’un tableau de bord statistique',
                         'Gestion des permissions des utilisateurs',
                         'Déploiement et intégration de l’application au sein de l’intranet de l’entreprise'
-                    ]
+                    ],
+                    competencesValidees: ['B1.1', 'B1.2','B1.3', 'B1.4', 'B1.5', 'B1.6'],
                 },
                 {
                     titre: 'Évolution du module Actualités',
@@ -99,7 +103,8 @@ const Stages = () => {
                     technologies: ['React', 'TypeScript'],
                     realisations: [
                         'Intégration d’un lecteur et gestion de l’affichage de contenus vidéo dans le flux d’actualités',
-                    ]
+                    ],
+                    competencesValidees: ['B1.2', 'B1.4', 'B1.5', 'B1.6'],
                 },
             ]
         },
@@ -186,6 +191,7 @@ const Stages = () => {
                                                     <Typography variant="body1" paragraph>
                                                         {projet.description}
                                                     </Typography>
+
                                                     {/* Galerie d'images du projet */}
                                                     {projet.images && projet.images.length > 0 && (
                                                         <Grid size={12}>
@@ -246,6 +252,15 @@ const Stages = () => {
                                                                 ))}
                                                             </Stack>
                                                         </Box>
+
+                                                        {/* Compétences validées */}
+                                                        {projet.competencesValidees && projet.competencesValidees.length > 0 && (
+                                                            <Stack direction="row" spacing={1} sx={{ mt: 2 }} flexWrap="wrap">
+                                                                {projet.competencesValidees.map((comp) => (
+                                                                    <Chip key={comp} label={comp} size="small" color="success" />
+                                                                ))}
+                                                            </Stack>
+                                                        )}
                                                     </Grid>
                                                 </Grid>
                                             </AccordionDetails>
