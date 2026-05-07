@@ -19,16 +19,16 @@ const Profil = () => {
     // Aperçu des activités récentes
     const recentActivities = [
         {
-            date: '2024 - Présent',
-            title: 'Formation Développement Web',
-            description: 'Formation intensive en développement Full Stack',
+            date: '2024',
+            title: 'Site Aunis Freeware',
+            description: 'Plateforme de l\'association Aunis Freeware permettant de s\'initier à la programmation web.',
             icon: <School />,
             color: 'primary' as const,
         },
         {
-            date: '2023',
-            title: 'Projet Portfolio',
-            description: 'Création d\'un portfolio avec React et TypeScript',
+            date: '2026',
+            title: 'Application Echappee',
+            description: 'Générateur d\'itinéraires touristiques personnalisés en Charente.',
             icon: <Code />,
             color: 'secondary' as const,
         },
