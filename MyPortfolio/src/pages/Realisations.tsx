@@ -50,9 +50,9 @@ const Activite = () => {
             ],
             statut: 'Terminé',
             images: [
+                '/projet_scolaire/echappee/liste_lieu.png',
                 '/projet_scolaire/echappee/cree_itineraire.png',
                 '/projet_scolaire/echappee/Detail_itineraire.png',
-                '/projet_scolaire/echappee/Visite.png',
             ],
             githubUrl: 'https://gitlab.com/Echappee',
         },
@@ -75,7 +75,7 @@ const Activite = () => {
                 '/projet_scolaire/chronosformation/ListeFormation.png',
                 '/projet_scolaire/chronosformation/Planning.png',
             ],
-            githubUrl: 'https://gitlab.lev-btssio.fr/mateo.deguil/chronosformation'
+            githubUrl: 'https://github.com/mdeguil/ChronosFormation'
         }
     ];
 

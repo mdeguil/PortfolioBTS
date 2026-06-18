@@ -1,6 +1,5 @@
 import { IconButton, Stack } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
-import { FaGitlab } from 'react-icons/fa';
 
 interface SocialLinksProps {
     size?: 'small' | 'medium' | 'large';
@@ -21,16 +20,6 @@ const SocialLinks = ({ size = 'medium', color = 'inherit' }: SocialLinksProps) =
                 <GitHub />
             </IconButton>
 
-            <IconButton
-                component="a"
-                href="https://gitlab.lev-btssio.fr/mateo.deguil"
-                target="_blank"
-                rel="noopener noreferrer"
-                size={size}
-                sx={{ color: color === 'inherit' ? '#FC6D26' : color }}
-            >
-                <FaGitlab />
-            </IconButton>
 
             <IconButton
                 component="a"

@@ -83,7 +83,7 @@ const Projets = () => {
             technologies: ['React', 'TypeScript', 'Material-UI'],
             date: 'Janvier 2026',
             github: 'https://github.com/mdeguil/PortfolioBTS',
-            statut: 'En cours',
+            statut: 'Terminé',
             afficherDetails: false,
             competencesValidees: ['B1.5'],
         },
